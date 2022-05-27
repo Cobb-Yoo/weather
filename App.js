@@ -8,6 +8,9 @@ import axios from "axios";
 import React from "react";
 
 const WEATHER_API_KEY = "f1e2dfa1f5bf7bcfd90bf896affa89b1";
+//const WEATHER_API_KEY = "cf14e4f2fccc56cbf452c4f259ba2a90";
+//
+
 //const MAP_API_KEY = "";
 
 export default class extends React.Component {
@@ -23,7 +26,7 @@ export default class extends React.Component {
         weather,
       },
     } = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${WEATHER_API_KEY}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${WEATHER_API_KEY}`
     );
     this.setState({
       isLoading: false,
