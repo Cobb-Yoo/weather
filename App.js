@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Alert } from "react-native";
 import Weather from "./Weather";
 import Loading from "./Loading";
 import MyPosition from "./MyPosition";
@@ -38,10 +38,11 @@ export default class extends React.Component {
   };
   getLocation = async () => {
     try {
-      //await Location.requestPermissionsAsync();
+      await Location.requestForegroundPermissionsAsync();
       const {
         coords: { latitude, longitude },
       } = await Location.getCurrentPositionAsync();
+
       this.getWeather(latitude, longitude);
     } catch (error) {
       Alert.alert("Can't find you.", "So sad");
